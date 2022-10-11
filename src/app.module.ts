@@ -7,7 +7,15 @@ import { TvShows } from './tv.shows.controller';
 import { Search } from './search.controller';
 
 @Module({
-  imports: [ConfigModule.forRoot(), HttpModule],
+  imports: [
+    ConfigModule.forRoot(),
+    HttpModule.registerAsync({
+      useFactory: () => ({
+        timeout: 10000,
+        maxRedirects: 10,
+      }),
+    }),
+  ],
   controllers: [AppController, TvShows, Search],
   providers: [AppService],
 })
