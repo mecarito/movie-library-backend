@@ -6,7 +6,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('upcomming')
-  UpcommingMovies() {
+  async UpcommingMovies() {
     return this.appService.UpcommingMovies();
   }
 
