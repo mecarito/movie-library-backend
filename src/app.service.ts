@@ -6,6 +6,7 @@ import { request } from 'undici';
 export class AppService {
   url = process.env.BASE_URL;
   apiKey = process.env.API_KEY;
+  results = [];
 
   constructor(private readonly httpService: HttpService) {}
 
@@ -15,6 +16,13 @@ export class AppService {
     );
     const data = await body.json();
     return data.results;
+
+    // const response = this.httpService
+    //   .get(`${this.url}movie/upcoming?api_key=${this.apiKey}`)
+    //   .subscribe((data) => {
+    //     this.results.push(data.data);
+    //     return this.results;
+    //   });
   }
 
   async trendingAll() {

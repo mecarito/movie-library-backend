@@ -8,6 +8,7 @@ import { Search } from './search.controller';
 
 @Module({
   imports: [
+    HttpModule,
     ConfigModule.forRoot(),
     HttpModule.registerAsync({
       useFactory: () => ({
