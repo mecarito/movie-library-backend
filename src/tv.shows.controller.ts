@@ -9,4 +9,9 @@ export class TvShows {
   trendingMovies() {
     return this.appService.trendingTvShows();
   }
+
+  @Get('test')
+  test() {
+    return 'test';
+  }
 }
